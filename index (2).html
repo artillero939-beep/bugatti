@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Bugatti | Historia y Automóviles</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#080808;
+    color:white;
+}
+
+/* =========================
+   NAVEGACIÓN
+========================= */
+
+nav{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    background:rgba(0,0,0,.92);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 7%;
+    z-index:1000;
+    border-bottom:1px solid #333;
+}
+
+.logo{
+    font-size:25px;
+    font-weight:bold;
+    letter-spacing:4px;
+    color:#e5e5e5;
+}
+
+.menu{
+    display:flex;
+    gap:25px;
+}
+
+.menu a{
+    color:white;
+    text-decoration:none;
+    font-size:15px;
+    transition:.3s;
+}
+
+.menu a:hover{
+    color:#d4af37;
+}
+
+/* =========================
+   INICIO
+========================= */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:100px 20px 40px;
+
+    background:
+    linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.85)),
+    url("https://commons.wikimedia.org/wiki/Special:FilePath/Bugatti_Veyron_16.4.jpg");
+
+    background-size:cover;
+    background-position:center;
+}
+
+.hero-content{
+    max-width:900px;
+}
+
+.hero h1{
+    font-size:70px;
+    letter-spacing:10px;
+    margin-bottom:20px;
+}
+
+.hero p{
+    font-size:22px;
+    color:#ddd;
+    margin-bottom:30px;
+}
+
+.boton{
+    display:inline-block;
+    padding:14px 30px;
+    background:#d4af37;
+    color:#000;
+    text-decoration:none;
+    font-weight:bold;
+    border-radius:5px;
+    transition:.3s;
+}
+
+.boton:hover{
+    background:white;
+}
+
+/* =========================
+   SECCIONES
+========================= */
+
+section{
+    padding:90px 8%;
+}
+
+.titulo{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.titulo h2{
+    font-size:40px;
+    margin-bottom:10px;
+}
+
+.titulo p{
+    color:#aaa;
+}
+
+/* =========================
+   HISTORIA
+========================= */
+
+.historia{
+    background:#111;
+}
+
+.historia-contenido{
+    max-width:1000px;
+    margin:auto;
+}
+
+.historia-item{
+    border-left:3px solid #d4af37;
+    padding:20px 30px;
+    margin-bottom:25px;
+    background:#181818;
+    border-radius:0 10px 10px 0;
+}
+
+.historia-item h3{
+    color:#d4af37;
+    font-size:25px;
+    margin-bottom:10px;
+}
+
+.historia-item p{
+    color:#ccc;
+    line-height:1.7;
+}
+
+/* =========================
+   COCHES
+========================= */
+
+.coches{
+    background:#080808;
+}
+
+.galeria{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+.card{
+    background:#151515;
+    border-radius:12px;
+    overflow:hidden;
+    transition:.4s;
+    border:1px solid #292929;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    border-color:#d4af37;
+}
+
+.card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+    display:block;
+}
+
+.card-info{
+    padding:20px;
+}
+
+.card-info h3{
+    font-size:23px;
+    margin-bottom:10px;
+}
+
+.card-info p{
+    color:#aaa;
+    line-height:1.5;
+}
+
+/* =========================
+   DATOS
+========================= */
+
+.datos{
+    background:#111;
+}
+
+.datos-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+.dato{
+    text-align:center;
+    padding:30px 15px;
+    background:#181818;
+    border-radius:10px;
+}
+
+.dato h3{
+    font-size:35px;
+    color:#d4af37;
+}
+
+.dato p{
+    color:#aaa;
+    margin-top:8px;
+}
+
+/* =========================
+   TOURBILLON
+========================= */
+
+.tourbillon{
+    min-height:600px;
+    display:flex;
+    align-items:center;
+
+    background:
+    linear-gradient(90deg,rgba(0,0,0,.9),rgba(0,0,0,.35)),
+    url("https://commons.wikimedia.org/wiki/Special:FilePath/Bugatti_Tourbillon.jpg");
+
+    background-size:cover;
+    background-position:center;
+}
+
+.tourbillon-contenido{
+    max-width:650px;
+}
+
+.tourbillon h2{
+    font-size:50px;
+    margin-bottom:20px;
+}
+
+.tourbillon p{
+    color:#ddd;
+    line-height:1.8;
+    font-size:18px;
+}
+
+/* =========================
+   CURIOSIDADES
+========================= */
+
+.curiosidades{
+    background:#080808;
+}
+
+.lista{
+    max-width:900px;
+    margin:auto;
+}
+
+.curiosidad{
+    padding:20px;
+    margin-bottom:15px;
+    background:#151515;
+    border-left:3px solid #d4af37;
+    border-radius:5px;
+}
+
+.curiosidad strong{
+    color:#d4af37;
+}
+
+/* =========================
+   PIE DE PÁGINA
+========================= */
+
+footer{
+    text-align:center;
+    background:#000;
+    padding:35px 20px;
+    border-top:1px solid #333;
+}
+
+footer h3{
+    letter-spacing:5px;
+    margin-bottom:10px;
+}
+
+footer p{
+    color:#777;
+}
+
+/* =========================
+   CELULAR
+========================= */
+
+@media(max-width:900px){
+
+    .galeria{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .datos-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .hero h1{
+        font-size:50px;
+    }
+
+}
+
+@media(max-width:600px){
+
+    nav{
+        flex-direction:column;
+        gap:12px;
+        padding:12px;
+    }
+
+    .logo{
+        font-size:20px;
+    }
+
+    .menu{
+        gap:12px;
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+    .menu a{
+        font-size:13px;
+    }
+
+    .hero{
+        min-height:90vh;
+        padding-top:130px;
+    }
+
+    .hero h1{
+        font-size:40px;
+        letter-spacing:5px;
+    }
+
+    .hero p{
+        font-size:17px;
+    }
+
+    section{
+        padding:60px 20px;
+    }
+
+    .titulo h2{
+        font-size:32px;
+    }
+
+    .galeria{
+        grid-template-columns:1fr;
+    }
+
+    .datos-grid{
+        grid-template-columns:1fr;
+    }
+
+    .tourbillon{
+        min-height:550px;
+    }
+
+    .tourbillon h2{
+        font-size:38px;
+    }
+
+    .card img{
+        height:230px;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- =========================
+     NAVEGACIÓN
+========================= -->
+
+<nav>
+
+    <div class="logo">
+        BUGATTI
+    </div>
+
+    <div class="menu">
+
+        <a href="#inicio">Inicio</a>
+
+        <a href="#historia">Historia</a>
+
+        <a href="#coches">Coches</a>
+
+        <a href="#tourbillon">Actualidad</a>
+
+        <a href="#curiosidades">Curiosidades</a>
+
+    </div>
+
+</nav>
+
+
+<!-- =========================
+     INICIO
+========================= -->
+
+<header class="hero" id="inicio">
+
+    <div class="hero-content">
+
+        <h1>BUGATTI</h1>
+
+        <p>
+            Más de un siglo de historia, diseño,
+            ingeniería y automóviles extraordinarios.
+        </p>
+
+        <a href="#historia" class="boton">
+            CONOCER SU HISTORIA
+        </a>
+
+    </div>
+
+</header>
+
+
+<!-- =========================
+     HISTORIA
+========================= -->
+
+<section class="historia" id="historia">
+
+    <div class="titulo">
+
+        <h2>Historia de Bugatti</h2>
+
+        <p>
+            Desde 1909 hasta la actualidad
+        </p>
+
+    </div>
+
+    <div class="historia-contenido">
+
+        <div class="historia-item">
+
+            <h3>1909 — El comienzo</h3>
+
+            <p>
+                Ettore Bugatti fundó la marca en Molsheim,
+                entonces en Alsacia. Desde sus primeros años,
+                Bugatti combinó ingeniería, diseño y competición
+                para crear automóviles diferentes a los demás.
+            </p>
+
+        </div>
+
+
+        <div class="historia-item">
+
+            <h3>1924 — Type 35</h3>
+
+            <p>
+                El Bugatti Type 35 se convirtió en uno de los
+                automóviles de competición más importantes de la
+                historia. Su diseño y comportamiento en pista
+                ayudaron a construir la reputación deportiva
+                de la marca.
+            </p>
+
+        </div>
+
+
+        <div class="historia-item">
+
+            <h3>Décadas de 1930 — La era del lujo</h3>
+
+            <p>
+                Modelos como el Type 41 Royale y el Type 57
+                demostraron que Bugatti también podía crear
+                automóviles de gran lujo y elegancia.
+            </p>
+
+        </div>
+
+
+        <div class="historia-item">
+
+            <h3>1991 — EB110</h3>
+
+            <p>
+                Durante el renacimiento de la marca apareció
+                el EB110, desarrollado bajo Romano Artioli.
+                Incorporó tecnologías avanzadas para su época,
+                incluyendo un motor V12 con cuatro turbocompresores
+                y tracción integral.
+            </p>
+
+        </div>
+
+
+        <div class="historia-item">
+
+            <h3>2005 — Veyron</h3>
+
+            <p>
+                El Veyron marcó el regreso de Bugatti a la
+                producción de hiperautomóviles. Su versión
+                inicial alcanzó 1,001 CV y superó los 400 km/h.
+            </p>
+
+        </div>
+
+
+        <div class="historia-item">
+
+            <h3>2016 — Chiron</h3>
+
+            <p>
+                El Chiron continuó la era moderna de Bugatti.
+                Utilizó una evolución del motor W16 de 8.0 litros
+                con cuatro turbocompresores.
+            </p>
+
+        </div>
+
+
+        <div class="historia-item">
+
+            <h3>2024 — Tourbillon</h3>
+
+            <p>
+                Bugatti presentó el Tourbillon como una nueva
+                generación de hiperautomóvil. Este modelo utiliza
+                una nueva plataforma y un sistema de propulsión
+                diferente al del Veyron y Chiron.
+            </p>
+
+        </div>
+
+
+        <div class="historia-item">
+
+            <h3>Actualidad</h3>
+
+            <p>
+                Bugatti continúa desarrollando automóviles de
+                altas prestaciones desde su histórica sede
+                de Molsheim, Francia.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     COCHES
+========================= -->
+
+<section class="coches" id="coches">
+
+    <div class="titulo">
+
+        <h2>Automóviles legendarios</h2>
+
+        <p>
+            Algunos de los Bugatti más conocidos
+        </p>
+
+    </div>
+
+
+    <div class="galeria">
+
+
+        <!-- TYPE 35 -->
+
+        <article class="card">
+
+            <img
+            src="https://commons.wikimedia.org/wiki/Special:FilePath/Bugatti-Type-35C.jpg"
+            alt="Bugatti Type 35">
+
+            <div class="card-info">
+
+                <h3>Bugatti Type 35</h3>
+
+                <p>
+                    Uno de los modelos de competición más
+                    importantes de la historia de Bugatti.
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <!-- TYPE 57 -->
+
+        <article class="card">
+
+            <img
+            src="https://commons.wikimedia.org/wiki/Special:FilePath/Bugatti%20Type%2057SC%20Atlantic%20%2853865202154%29.jpg"
+            alt="Bugatti Type 57">
+
+            <div class="card-info">
+
+                <h3>Type 57</h3>
+
+                <p>
+                    Representa la combinación de elegancia,
+                    diseño y tecnología característica de
+                    Bugatti.
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <!-- EB110 -->
+
+        <article class="card">
+
+            <img
+            src="https://commons.wikimedia.org/wiki/Special:FilePath/Bugatti%20EB110%20GT.jpg"
+            alt="Bugatti EB110">
+
+            <div class="card-info">
+
+                <h3>EB110</h3>
+
+                <p>
+                    El modelo que simbolizó el renacimiento
+                    de Bugatti durante los años 90.
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <!-- VEYRON -->
+
+        <article class="card">
+
+            <img
+            src="https://commons.wikimedia.org/wiki/Special:FilePath/Bugatti%20Veyron%2016.4.jpg"
+            alt="Bugatti Veyron">
+
+            <div class="card-info">
+
+                <h3>Veyron</h3>
+
+                <p>
+                    El hiperautomóvil que llevó a Bugatti
+                    a superar la barrera de los 1,000 CV
+                    y los 400 km/h.
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <!-- CHIRON -->
+
+        <article class="card">
+
+            <img
+            src="https://commons.wikimedia.org/wiki/Special:FilePath/Bugatti%20Chiron%201.jpg"
+            alt="Bugatti Chiron">
+
+            <div class="card-info">
+
+                <h3>Chiron</h3>
+
+                <p>
+                    Una evolución del concepto del Veyron
+                    y uno de los modelos más reconocidos
+                    de la era moderna.
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <!-- DIVO -->
+
+        <article class="card">
+
+            <img
+            src="https://commons.wikimedia.org/wiki/Special:FilePath/A%20Bugatti%20Divo.jpg"
+            alt="Bugatti Divo">
+
+            <div class="card-info">
+
+                <h3>Bugatti Divo</h3>
+
+                <p>
+                    Un modelo exclusivo desarrollado a
+                    partir de la familia Chiron.
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <!-- LA VOITURE NOIRE -->
+
+        <article class="card">
+
+            <img
+            src="https://commons.wikimedia.org/wiki
